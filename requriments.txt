@@ -5,6 +5,8 @@ Flask==2.3.3
 gunicorn==21.2.0
 pymongo[srv]
 pymongo
+scipy
+PyYAML
 
 pandas==2.2.2
 numpy==1.26.4
