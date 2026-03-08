@@ -45,11 +45,32 @@ class DataTransformation:
             raise NetworkSecurityException(e, sys)
 
 
+    @staticmethod
+    def add_engineered_features(df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Feature engineering for churn prediction
+        """
+
+        try:
+
+            df["charges_per_tenure"] = df["MonthlyCharges"] / (df["tenure"] + 1)
+
+            df["total_spend"] = df["MonthlyCharges"] * df["tenure"]
+
+            df["tenure_group"] = pd.cut(
+                df["tenure"],
+                bins=[0, 12, 24, 48, 60, 100],
+                labels=["0-1yr", "1-2yr", "2-4yr", "4-5yr", "5+yr"]
+            )
+
+            return df
+
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)
+
+
     @classmethod
     def get_data_transformer_object(cls) -> Pipeline:
-        """
-        Creates preprocessing pipeline for churn dataset
-        """
 
         try:
 
@@ -58,7 +79,9 @@ class DataTransformation:
             numerical_columns = [
                 "tenure",
                 "MonthlyCharges",
-                "TotalCharges"
+                "TotalCharges",
+                "charges_per_tenure",
+                "total_spend"
             ]
 
             categorical_columns = [
@@ -77,10 +100,10 @@ class DataTransformation:
                 "StreamingMovies",
                 "Contract",
                 "PaperlessBilling",
-                "PaymentMethod"
+                "PaymentMethod",
+                "tenure_group"
             ]
 
-            # Numerical pipeline
             num_pipeline = Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy="median")),
@@ -88,11 +111,10 @@ class DataTransformation:
                 ]
             )
 
-            # Categorical pipeline
             cat_pipeline = Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy="most_frequent")),
-                    ("encoder", OneHotEncoder(handle_unknown="ignore"))
+                    ("encoder", OneHotEncoder(handle_unknown="ignore", sparse_output=False))
                 ]
             )
 
@@ -129,6 +151,10 @@ class DataTransformation:
             train_df["TotalCharges"] = pd.to_numeric(train_df["TotalCharges"], errors="coerce")
             test_df["TotalCharges"] = pd.to_numeric(test_df["TotalCharges"], errors="coerce")
 
+            # Feature engineering
+            train_df = self.add_engineered_features(train_df)
+            test_df = self.add_engineered_features(test_df)
+
             logging.info("Splitting input and target features")
 
             input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)
@@ -137,7 +163,6 @@ class DataTransformation:
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_test_df = test_df[TARGET_COLUMN]
 
-            # Convert target column
             target_feature_train_df = target_feature_train_df.map({"Yes": 1, "No": 0})
             target_feature_test_df = target_feature_test_df.map({"Yes": 1, "No": 0})
 
@@ -187,6 +212,8 @@ class DataTransformation:
                 self.data_transformation_config.transformed_object_file_path,
                 preprocessor_object
             )
+
+            os.makedirs("final_model", exist_ok=True)
 
             save_object(
                 "final_model/preprocessor.pkl",

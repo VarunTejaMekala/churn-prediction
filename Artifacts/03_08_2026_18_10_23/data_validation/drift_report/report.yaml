@@ -1,9 +1,0 @@
-MonthlyCharges:
-  drift_status: false
-  p_value: 0.78026741607418
-SeniorCitizen:
-  drift_status: false
-  p_value: 0.9999999994530152
-tenure:
-  drift_status: false
-  p_value: 0.7655481486042904

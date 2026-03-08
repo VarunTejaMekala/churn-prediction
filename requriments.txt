@@ -1,4 +1,5 @@
-
+imblearn
+xgboost
 python-dotenv
 -e .
 Flask==2.3.3

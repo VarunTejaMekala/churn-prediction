@@ -3,6 +3,8 @@ Name: Churn-prediction
 Version: 0.0.1
 Author: Varun Teja Mekala
 Author-email: varuntejamekala123@gmail.com
+Requires-Dist: imblearn
+Requires-Dist: xgboost
 Requires-Dist: python-dotenv
 Requires-Dist: Flask==2.3.3
 Requires-Dist: gunicorn==21.2.0
