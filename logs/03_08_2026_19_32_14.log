@@ -1,0 +1,29 @@
+[ 2026-03-08 19:32:16,085 ] INFO root:16 - Initiate the data ingestion
+[ 2026-03-08 19:32:18,097 ] INFO root:64 - Performed train test split on the dataframe
+[ 2026-03-08 19:32:18,097 ] INFO root:66 - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2026-03-08 19:32:18,097 ] INFO root:74 - Exporting train and test file path.
+[ 2026-03-08 19:32:18,144 ] INFO root:83 - Exported train and test file path.
+[ 2026-03-08 19:32:18,153 ] INFO root:18 - Data Initiation Completed
+[ 2026-03-08 19:32:18,158 ] INFO root:22 - initiate the data validation
+[ 2026-03-08 19:32:18,227 ] INFO root:42 - Required number of columns: 21
+[ 2026-03-08 19:32:18,227 ] INFO root:43 - Dataframe has 21 columns
+[ 2026-03-08 19:32:18,227 ] INFO root:42 - Required number of columns: 21
+[ 2026-03-08 19:32:18,227 ] INFO root:43 - Dataframe has 21 columns
+[ 2026-03-08 19:32:18,227 ] INFO root:62 - Column names validation passed
+[ 2026-03-08 19:32:18,227 ] INFO root:62 - Column names validation passed
+[ 2026-03-08 19:32:18,307 ] INFO root:24 - data validation completed
+[ 2026-03-08 19:32:18,307 ] INFO root:27 - data Transformation started
+[ 2026-03-08 19:32:18,307 ] INFO root:114 - Entered initiate_data_transformation method
+[ 2026-03-08 19:32:18,307 ] INFO root:118 - Reading train and test data
+[ 2026-03-08 19:32:18,369 ] INFO root:132 - Splitting input and target features
+[ 2026-03-08 19:32:18,374 ] INFO root:144 - Getting preprocessing object
+[ 2026-03-08 19:32:18,374 ] INFO root:56 - Creating preprocessing pipeline
+[ 2026-03-08 19:32:18,374 ] INFO root:148 - Fitting preprocessing object
+[ 2026-03-08 19:32:18,459 ] INFO root:160 - Combining input features with target column
+[ 2026-03-08 19:32:18,459 ] INFO root:172 - Saving transformed data
+[ 2026-03-08 19:32:18,459 ] INFO root:184 - Saving preprocessing object
+[ 2026-03-08 19:32:18,459 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-08 19:32:18,467 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-08 19:32:18,467 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-08 19:32:18,467 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-08 19:32:18,472 ] INFO root:31 - data Transformation completed
