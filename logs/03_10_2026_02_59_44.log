@@ -1,0 +1,41 @@
+[ 2026-03-10 02:59:47,685 ] INFO root:20 - Initiate the data ingestion
+[ 2026-03-10 02:59:51,697 ] INFO root:64 - Performed train test split on the dataframe
+[ 2026-03-10 02:59:51,697 ] INFO root:66 - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2026-03-10 02:59:51,697 ] INFO root:74 - Exporting train and test file path.
+[ 2026-03-10 02:59:51,735 ] INFO root:83 - Exported train and test file path.
+[ 2026-03-10 02:59:51,738 ] INFO root:22 - Data Initiation Completed
+[ 2026-03-10 02:59:51,738 ] INFO root:26 - initiate the data validation
+[ 2026-03-10 02:59:51,808 ] INFO root:42 - Required number of columns: 21
+[ 2026-03-10 02:59:51,808 ] INFO root:43 - Dataframe has 21 columns
+[ 2026-03-10 02:59:51,808 ] INFO root:42 - Required number of columns: 21
+[ 2026-03-10 02:59:51,808 ] INFO root:43 - Dataframe has 21 columns
+[ 2026-03-10 02:59:51,808 ] INFO root:62 - Column names validation passed
+[ 2026-03-10 02:59:51,808 ] INFO root:62 - Column names validation passed
+[ 2026-03-10 02:59:51,872 ] INFO root:28 - data validation completed
+[ 2026-03-10 02:59:51,873 ] INFO root:31 - data Transformation started
+[ 2026-03-10 02:59:51,873 ] INFO root:136 - Entered initiate_data_transformation method
+[ 2026-03-10 02:59:51,873 ] INFO root:140 - Reading train and test data
+[ 2026-03-10 02:59:51,940 ] INFO root:158 - Splitting input and target features
+[ 2026-03-10 02:59:51,942 ] INFO root:169 - Getting preprocessing object
+[ 2026-03-10 02:59:51,942 ] INFO root:77 - Creating preprocessing pipeline
+[ 2026-03-10 02:59:51,942 ] INFO root:173 - Fitting preprocessing object
+[ 2026-03-10 02:59:51,996 ] INFO root:185 - Combining input features with target column
+[ 2026-03-10 02:59:51,996 ] INFO root:197 - Saving transformed data
+[ 2026-03-10 02:59:51,996 ] INFO root:209 - Saving preprocessing object
+[ 2026-03-10 02:59:51,996 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-10 02:59:51,996 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-10 02:59:52,001 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-10 02:59:52,001 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-10 02:59:52,001 ] INFO root:35 - data Transformation completed
+[ 2026-03-10 02:59:52,001 ] INFO root:37 - Model Training sstared
+[ 2026-03-10 02:59:52,022 ] INFO root:79 - Applying SMOTE to balance training dataset
+[ 2026-03-10 02:59:52,190 ] INFO root:85 - After SMOTE X_train shape: (8250, 53)
+[ 2026-03-10 02:59:52,190 ] INFO root:86 - After SMOTE y_train shape: (8250,)
+[ 2026-03-10 03:00:32,521 ] INFO root:134 - Best Model: XGBoost
+[ 2026-03-10 03:00:44,935 ] INFO root:167 - Train Metrics: ClassificationMetricArtifact(f1_score=0.947075208913649, precision_score=0.9084836339345357, recall_score=0.9890909090909091)
+[ 2026-03-10 03:00:44,935 ] INFO root:168 - Test Metrics: ClassificationMetricArtifact(f1_score=0.5902864259028643, precision_score=0.5349887133182845, recall_score=0.6583333333333333)
+[ 2026-03-10 03:00:44,960 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-10 03:00:44,960 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-10 03:00:44,960 ] INFO root:47 - Entered the save_object method of MainUtils class
+[ 2026-03-10 03:00:44,966 ] INFO root:51 - Exited the save_object method of MainUtils class
+[ 2026-03-10 03:00:44,966 ] INFO root:198 - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\03_10_2026_02_59_45\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.947075208913649, precision_score=0.9084836339345357, recall_score=0.9890909090909091), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.5902864259028643, precision_score=0.5349887133182845, recall_score=0.6583333333333333))

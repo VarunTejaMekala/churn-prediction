@@ -76,31 +76,36 @@ def load_numpy_array_data(file_path: str) -> np.array:
     
 
 
-def evaluate_models(X_train, y_train,X_test,y_test,models,param):
+def evaluate_models(X_train, y_train, X_test, y_test, models, param):
     try:
+
         report = {}
 
         for i in range(len(list(models))):
+
+            model_name = list(models.keys())[i]
             model = list(models.values())[i]
-            para=param[list(models.keys())[i]]
 
-            gs = GridSearchCV(models, param, cv=3, n_jobs=1)
-            gs.fit(X_train,y_train)
+            para = param[model_name]
 
-            model.set_params(**gs.best_params_)
-            model.fit(X_train,y_train)
+            gs = GridSearchCV(
+                estimator=model,
+                param_grid=para,
+                cv=3,
+                n_jobs=-1
+            )
 
-            #model.fit(X_train, y_train)  # Train model
+            gs.fit(X_train, y_train)
 
-            y_train_pred = model.predict(X_train)
+            best_model = gs.best_estimator_
 
-            y_test_pred = model.predict(X_test)
+            best_model.fit(X_train, y_train)
 
-            train_model_score = r2_score(y_train, y_train_pred)
+            y_test_pred = best_model.predict(X_test)
 
             test_model_score = r2_score(y_test, y_test_pred)
 
-            report[list(models.keys())[i]] = test_model_score
+            report[model_name] = test_model_score
 
         return report
 
