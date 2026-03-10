@@ -1,18 +1,10 @@
-imblearn
-xgboost
+
 python-dotenv
 -e .
 Flask==2.3.3
 gunicorn==21.2.0
-pymongo[srv]
-pymongo
-scipy
-PyYAML
-mlflow
-pandas==2.2.2
-numpy==1.26.4
-scikit-learn==1.4.2
-scipy==1.11.4
+seaborn
+
 matplotlib==3.8.4
 statsmodels==0.14.2
 
@@ -21,5 +13,14 @@ eli5==0.13.0
 pdpbox==0.3.0
 lifelines==0.28.0
 
-joblib==1.3.2
-ipython==8.18.1
+pandas>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+imbalanced-learn>=0.11.0
+pymongo>=4.6.0
+python-dotenv>=1.0.0
+pyyaml>=6.0
+scipy>=1.11.0
+mlflow>=2.10.0
+certifi>=2024.2.2

@@ -20,3 +20,26 @@ columns:
   MonthlyCharges: float64
   TotalCharges: object
   Churn: object
+
+numerical_columns:
+  - tenure
+  - MonthlyCharges
+  - TotalCharges
+  - SeniorCitizen
+
+categorical_columns:
+  - gender
+  - Partner
+  - Dependents
+  - PhoneService
+  - MultipleLines
+  - InternetService
+  - OnlineSecurity
+  - OnlineBackup
+  - DeviceProtection
+  - TechSupport
+  - StreamingTV
+  - StreamingMovies
+  - Contract
+  - PaperlessBilling
+  - PaymentMethod

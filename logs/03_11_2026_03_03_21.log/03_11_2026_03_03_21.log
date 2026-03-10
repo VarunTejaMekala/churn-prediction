@@ -1,0 +1,55 @@
+[ 2026-03-11 03:03:23,986 ] 30 root - INFO - ============================================================
+[ 2026-03-11 03:03:23,986 ] 31 root - INFO - STEP 1: Data Ingestion
+[ 2026-03-11 03:03:23,986 ] 32 root - INFO - ============================================================
+[ 2026-03-11 03:03:23,986 ] 93 root - INFO - Starting data ingestion
+[ 2026-03-11 03:03:23,986 ] 32 root - INFO - Connecting to MongoDB: varuntejamekala.NetworkData
+[ 2026-03-11 03:03:29,107 ] 42 root - INFO - Loaded 7,043 records from MongoDB
+[ 2026-03-11 03:03:29,166 ] 54 root - INFO - Feature store saved: Artifacts\03_11_2026_03_03_21\data_ingestion\feature_store\Telco-Customer-Churn.csv
+[ 2026-03-11 03:03:29,187 ] 77 root - INFO - Split complete — Train: 5,634 | Test: 1,409
+[ 2026-03-11 03:03:29,262 ] 86 root - INFO - Train and test CSVs saved.
+[ 2026-03-11 03:03:29,265 ] 102 root - INFO - Data ingestion complete: DataIngestionArtifact(trained_file_path='Artifacts\\03_11_2026_03_03_21\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\03_11_2026_03_03_21\\data_ingestion\\ingested\\test.csv')
+[ 2026-03-11 03:03:29,273 ] 36 root - INFO - Data Ingestion complete: DataIngestionArtifact(trained_file_path='Artifacts\\03_11_2026_03_03_21\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\03_11_2026_03_03_21\\data_ingestion\\ingested\\test.csv')
+[ 2026-03-11 03:03:29,273 ] 41 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,273 ] 42 root - INFO - STEP 2: Data Validation
+[ 2026-03-11 03:03:29,273 ] 43 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,372 ] 38 root - INFO - Column count — expected: 21, actual: 21
+[ 2026-03-11 03:03:29,372 ] 38 root - INFO - Column count — expected: 21, actual: 21
+[ 2026-03-11 03:03:29,372 ] 48 root - INFO - Column name validation passed
+[ 2026-03-11 03:03:29,372 ] 48 root - INFO - Column name validation passed
+[ 2026-03-11 03:03:29,431 ] 116 root - INFO - Drift check complete. Drifted columns (0): []
+[ 2026-03-11 03:03:29,487 ] 171 root - INFO - Data validation complete: DataValidationArtifact(validation_status=True, valid_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\validated\\train.csv', valid_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\validated\\test.csv', invalid_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\invalid\\train.csv', invalid_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\invalid\\test.csv', drift_report_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\drift_report\\report.yaml')
+[ 2026-03-11 03:03:29,488 ] 47 root - INFO - Data Validation complete: DataValidationArtifact(validation_status=True, valid_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\validated\\train.csv', valid_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\validated\\test.csv', invalid_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\invalid\\train.csv', invalid_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\invalid\\test.csv', drift_report_file_path='Artifacts\\03_11_2026_03_03_21\\data_validation\\drift_report\\report.yaml')
+[ 2026-03-11 03:03:29,488 ] 52 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,488 ] 53 root - INFO - STEP 3: Data Transformation
+[ 2026-03-11 03:03:29,488 ] 54 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,488 ] 151 root - INFO - Starting data transformation
+[ 2026-03-11 03:03:29,688 ] 93 root - INFO - Building preprocessing ColumnTransformer
+[ 2026-03-11 03:03:29,829 ] 56 root - INFO - Saving object to: Artifacts\03_11_2026_03_03_21\data_transformation\transformed_object\preprocessing.pkl
+[ 2026-03-11 03:03:29,833 ] 56 root - INFO - Saving object to: final_model/preprocessor.pkl
+[ 2026-03-11 03:03:29,834 ] 206 root - INFO - Data transformation complete: DataTransformationArtifact(transformed_object_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed\\train.npy', transformed_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed\\test.npy')
+[ 2026-03-11 03:03:29,836 ] 60 root - INFO - Data Transformation complete: DataTransformationArtifact(transformed_object_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed_object\\preprocessing.pkl', transformed_train_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed\\train.npy', transformed_test_file_path='Artifacts\\03_11_2026_03_03_21\\data_transformation\\transformed\\test.npy')
+[ 2026-03-11 03:03:29,836 ] 65 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,836 ] 66 root - INFO - STEP 4: Model Training
+[ 2026-03-11 03:03:29,836 ] 67 root - INFO - ============================================================
+[ 2026-03-11 03:03:29,875 ] 103 root - INFO - Applying SMOTE to balance training dataset
+[ 2026-03-11 03:03:30,067 ] 106 root - INFO - Post-SMOTE shapes — X: (8278, 55), y: (8278,)
+[ 2026-03-11 03:03:30,067 ] 98 root - INFO - Running GridSearchCV for: Random Forest
+[ 2026-03-11 03:04:01,610 ] 112 root - INFO - Random Forest best params: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 400}
+[ 2026-03-11 03:04:01,722 ] 124 root - INFO - Random Forest — Test F1: 0.6097
+[ 2026-03-11 03:04:01,722 ] 98 root - INFO - Running GridSearchCV for: XGBoost
+[ 2026-03-11 03:04:16,320 ] 112 root - INFO - XGBoost best params: {'colsample_bytree': 1.0, 'learning_rate': 0.05, 'max_depth': 5, 'n_estimators': 200, 'subsample': 0.8}
+[ 2026-03-11 03:04:16,331 ] 124 root - INFO - XGBoost — Test F1: 0.6260
+[ 2026-03-11 03:04:16,331 ] 98 root - INFO - Running GridSearchCV for: AdaBoost
+[ 2026-03-11 03:04:23,568 ] 112 root - INFO - AdaBoost best params: {'learning_rate': 0.1, 'n_estimators': 200}
+[ 2026-03-11 03:04:23,617 ] 124 root - INFO - AdaBoost — Test F1: 0.4195
+[ 2026-03-11 03:04:23,619 ] 157 root - INFO - Best model: XGBoost — Test F1: 0.6260
+[ 2026-03-11 03:04:24,071 ] 183 root - INFO - Train — F1: 0.8833 | ROC-AUC: 0.9618
+[ 2026-03-11 03:04:24,071 ] 184 root - INFO - Test  — F1: 0.6260  | ROC-AUC: 0.8395
+[ 2026-03-11 03:04:24,072 ] 88 root - WARNING - [XGBoost] Possible overfitting — Train F1: 0.8833, Test F1: 0.6260, Diff: 0.2574 > threshold: 0.05
+[ 2026-03-11 03:04:42,617 ] 56 root - INFO - Saving object to: Artifacts\03_11_2026_03_03_21\model_trainer\trained_model\model.pkl
+[ 2026-03-11 03:04:42,623 ] 56 root - INFO - Saving object to: final_model/model.pkl
+[ 2026-03-11 03:04:42,627 ] 222 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\03_11_2026_03_03_21\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.8833220491988264, precision_score=0.8287105653186534, recall_score=0.9456390432471612, roc_auc_score=0.9618393993084363), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.6259541984732825, precision_score=0.5285451197053407, recall_score=0.767379679144385, roc_auc_score=0.8395334418352322))
+[ 2026-03-11 03:04:42,639 ] 74 root - INFO - Model Training complete: ModelTrainerArtifact(trained_model_file_path='Artifacts\\03_11_2026_03_03_21\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.8833220491988264, precision_score=0.8287105653186534, recall_score=0.9456390432471612, roc_auc_score=0.9618393993084363), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.6259541984732825, precision_score=0.5285451197053407, recall_score=0.767379679144385, roc_auc_score=0.8395334418352322))
+[ 2026-03-11 03:04:42,639 ] 76 root - INFO - ============================================================
+[ 2026-03-11 03:04:42,639 ] 77 root - INFO - PIPELINE COMPLETE \u2713
+[ 2026-03-11 03:04:42,639 ] 78 root - INFO - ============================================================

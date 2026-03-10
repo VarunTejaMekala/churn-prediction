@@ -1,18 +1,27 @@
 import sys
-
-def error_message_detail(error,error_detail:sys):
-    _,_,exc_tb=error_detail.exc_info()
-    file_name=exc_tb.tb_frame.f_code.co_filename
-    error_message = (
-    "Error occurred in python script name [{0}] line number [{1}] error message [{2}]"
-    ).format(file_name, exc_tb.tb_lineno, str(error))
+import traceback
 
 
-    return error_message
 class NetworkSecurityException(Exception):
-    def __init__(self,error_message,error_detail:sys):
-        super().__init__(error_message)
-        self.error_message=error_message_detail(error_message,error_detail=error_detail)
+    """
+    Custom exception that captures file name, line number, and original message.
+    """
+
+    def __init__(self, error_message, error_detail: sys):
+        super().__init__(str(error_message))
+        _, _, exc_tb = error_detail.exc_info()
+
+        if exc_tb is not None:
+            self.lineno = exc_tb.tb_lineno
+            self.filename = exc_tb.tb_frame.f_code.co_filename
+        else:
+            self.lineno = "N/A"
+            self.filename = "N/A"
+
+        self.error_message = error_message
 
     def __str__(self):
-        return self.error_message
+        return (
+            f"Error in script: [{self.filename}] "
+            f"at line [{self.lineno}] — {self.error_message}"
+        )
